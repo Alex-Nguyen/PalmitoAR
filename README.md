@@ -1,3 +1,7 @@
-# BattleFieldAR
+# PalmitoAR
 
-https://alex-nguyen.github.io/BattleFieldAR/home.html
+## Start page
+https://alex-nguyen.github.io/PalmitoAR/index.html
+
+## AR page
+https://alex-nguyen.github.io/PalmitoAR/home.html
