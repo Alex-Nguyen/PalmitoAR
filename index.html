@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://code.createjs.com/1.0.0/easeljs.min.js"></script>
+
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+        #fly {
+            display: block;
+            position: relative;
+            margin: 0px auto;
+            width: 50%;
+            height: 40px;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            font-size: 12px;
+            text-align: center;
+            color: #fff;
+            background: #ee8a65;
+        }
+
+    </style>
+</head>
+
+<body>
+<div id="dialog" title="Palmito Ranch Battle Field">
+    Going to Palmito Ranch Battle Field will start in <span id="timer" ></span> seconds
+</div>
+<div id="container">
+    <div id='map'></div>
+
+</div>
+
+</body>
+<script>
+    $(document).ready( function() {
+        // When site loaded, load the Popupbox First
+        let timerText = $("#timer");
+        let dialog = $("#dialog");
+        mapboxgl.accessToken = 'pk.eyJ1IjoidmluaG50IiwiYSI6ImNqb2VqdXZvaDE4cnkzcG80dXkxZzlhNWcifQ.G6sZ1ukp_DhiSmCvgKblVQ';
+        var start = [-99, 32];
+        var end = [-97.283, 25.9432];
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: start,
+            zoom: 4
+        });
+        let marker = new mapboxgl.Marker()
+            .setLngLat(end)
+            .addTo(map);
+        dialog.dialog();
+        introMap();
+        function introMap() {
+            // Countdown 5 seconds then start
+            let initCounter = 5;
+
+            let initTimer = setInterval(function () {
+                initCounter--;
+                if(initCounter <0){
+                    flyTo();
+                    clearInterval(initTimer);
+                    dialog.dialog('close');
+
+
+                }else{
+                    timerText.text(initCounter.toString())
+                }
+
+            },1000);
+            dialog.dialog({
+                close:function () {
+                    flyTo();
+                   clearInterval(initTimer);
+
+                }
+            });
+            function flyTo() {
+                map.flyTo({
+                    center: end,
+                    zoom: 13.5,
+                    bearing: 0,
+                    speed: 0.8, // make the flying slow
+                    curve: .6, // change the speed at which it zooms out
+                    easing: function (t) { return t; }
+                });
+                var flying = false;
+                map.on('flystart', function(){
+                    flying = true;
+                });
+                map.on('flyend', function(){
+                    flying = false;
+                });
+
+                map.on('moveend', function(e){
+                    console.log(e)
+                    if(flying) {
+                        map.setStyle('mapbox://styles/mapbox/satellite-v9');
+                        map.fire('flyend');
+                        setTimeout(function () {
+                            startAFrame();
+                        },3000)
+                    }
+                });
+                map.fire('flystart');
+
+            }
+        }
+
+        function startAFrame() {
+            $("#dialog").text("Start AR simulation?")
+            dialog.dialog({
+                modal: true,
+                buttons: {
+                    Ok: function() {
+                        window.open("home.html","_self")
+
+                    },
+                    Cancel:function () {
+                        $( this ).dialog( "close" );
+                    }
+                }
+            });
+        }
+
+
+
+    });
+
+
+</script>
+</html>

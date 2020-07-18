@@ -1,0 +1,162 @@
+<script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+<script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v6.0.0/dist/aframe-extras.min.js"></script>
+<script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+<script src="components/scenemanager.js"></script>
+<script src="https://rawgit.com/protyze/aframe-curve-component/master/dist/aframe-curve-component.min.js"></script>
+<script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
+<script src="https://unpkg.com/aframe-look-at-component@0.8.x/dist/aframe-look-at-component.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/mayognaise/aframe-gif-shader/dist/aframe-gif-shader.min.js"></script>
+<script src="https://unpkg.com/aframe-spe-particles-component@^1.0.4/dist/aframe-spe-particles-component.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+    #countdown {
+        position: absolute;
+        top: 0;
+        left: 10px;
+
+    }
+
+</style>
+<body style='margin :auto; overflow: hidden;'>
+
+<div id="countdown"></div>
+<div class="fixed-bottom mb-4">
+    <div id="message01" style="display: none" class="text-center pl-5 pr-5 bg-info message">
+        <h4>Around 8:30 am May 12, 1865 Branson led his men off to attack a Confederate camp at Palmito Ranch</h4>
+    </div>
+    <div id="message02" style="display: none" class="text-center pl-5 pr-5 bg-info message">
+        <h4>After much skirmishing along the way, the Federals attacked the camp and scattered the Confederates</h4>
+    </div>
+    <div id="message03" style="display: none" class="text-center pl-5 pr-5 bg-info message">
+        <h4>The Union took Palmito Ranch, burning any supplies that they found abandoned at the camp, and capturing
+            three prisoners. Branson and his men remained at the site to feed themselves and their horses</h4>
+    </div>
+    <div id="message04" style="display: none" class="text-center pl-5 pr-5 bg-info message">
+        <h4>At 3:00 pm, a sizable Confederate force appeared, influencing the Federals to retire to White's Ranch</h4>
+    </div>
+    <div id="message05" style="display: none" class="text-center pl-5 pr-5 bg-info message">
+        <h4>On the 13th, with 200 augmented men, the Union started out towards Palmito Ranch, skirmishing most of the
+            way. They destroyed the rest of the supplies not torched the day before and continued on</h4>
+    </div>
+    <div id="message06" style="display: none" class="text-center pl-5 pr-5 bg-info message">
+        <h4>After the fighting stopped, Barrett led his force back to a bluff at Tulosa on the river where the men could
+            prepare dinner and camp for the night</h4>
+    </div>
+    <div id="message07" style="display: none" class="text-center pl-5 pr-5 bg-info message">
+        <h4>At 4:00 pm, a large Confederate cavalry force, commanded by Col. John S. Ford, approached. The Rebels
+            hammered the Union line with artillery</h4>
+    </div>
+    <div id="message08" style="display: none" class="text-center pl-5 pr-5 bg-info message">
+        <h4>To preclude an enemy flanking movement, Barrett ordered a retreat. This was the last battle in the Civil
+            War</h4>
+    </div>
+</div>
+<div class="fixed-top mt-4">
+    <ul class="nav nav-pills nav-justified">
+        <li class="nav-item">
+            <button type="button" id="stage1" class="btn btn-dark stage">S1</button>
+        </li>
+        <li class="nav-item">
+            <button type="button" id="stage2" class="btn btn-dark stage">S2</button>
+        </li>
+        <li class="nav-item">
+            <button type="button" id="stage3" class="btn btn-dark stage">S3</button>
+        </li>
+        <li class="nav-item">
+            <button type="button" id="stage4" class="btn btn-dark stage">S4</button>
+        </li>
+        <li class="nav-item">
+            <button type="button" id="stage5" class="btn btn-dark stage">S5</button>
+        </li>
+        <li class="nav-item">
+            <button type="button" id="stage6" class="btn btn-dark stage">S6</button>
+        </li>
+        <li class="nav-item">
+            <button type="button" id="stage7" class="btn btn-dark stage">S7</button>
+        </li>
+        <li class="nav-item">
+            <button type="button" id="stage8" class="btn btn-dark stage">S8</button>
+        </li>
+        <li class="nav-item">
+            <button type="button" id="fullScreen" class="btn btn-success"><i class="fas fa-expand"></i></button>
+        </li>
+        <li class="nav-item">
+            <a href="data/printedmap.pdf" download class="btn btn-success"><i class="fas fa-print"></i></a>
+
+        </li>
+    </ul>
+</div>
+<a-scene manager embedded arjs='sourceType: webcam;  debugUIEnabled: false' vr-mode-ui="enabled: false" >
+    <a-assets>
+        <img id="unionFlag" src="data/unionFlags.jpg"/>
+        <img id="confederate" src="data/confederate.jpg"/>
+        <a-asset-item id="unionTroop" src="data/FinalUnion.glb"></a-asset-item>
+        <a-asset-item id="confTroop" src="data/confTroop.glb"></a-asset-item>
+        <a-asset-item id="confRTroop" src="data/conFRifle.glb"></a-asset-item>
+        <a-asset-item id="cannon" src="data/cannon.glb"></a-asset-item>
+        <audio id="audio1" src="data/Voice/message01.mp3" class="audio-play"  preload="auto">
+        </audio>
+        <audio id="audio2" src="data/Voice/message02.mp3" class="audio-play"  preload="auto">
+        </audio>
+        <audio id="audio3" src="data/Voice/message03.mp3" class="audio-play"  preload="auto">
+        </audio>
+        <audio id="audio4" src="data/Voice/message04.mp3" class="audio-play"  preload="auto">
+        </audio>
+        <audio id="audio5" src="data/Voice/message05.mp3" class="audio-play"  preload="auto">
+        </audio>
+        <audio id="audio6" src="data/Voice/message06.mp3" class="audio-play"  preload="auto">
+        </audio>
+        <audio id="audio7" src="data/Voice/message07.mp3" class="audio-play"  preload="auto">
+        </audio>
+        <audio id="audio8" src="data/Voice/message08.mp3" class="audio-play"  preload="auto">
+        </audio>
+        <audio id="sword" src="data/sounds/Sword.mp3" loop="true" class="audio-play"  preload="auto">
+        </audio>
+        <audio id="gunfight2" src="data/sounds/gunfight2.mp3" loop="true" class="audio-play"  preload="auto">
+        </audio>
+        <audio id="cannonFight" src="data/sounds/Cannon.mp3" loop="true" class="audio-play"  preload="auto">
+        </audio>
+    </a-assets>
+
+    <a-entity id="fire1" visible="false"  rotation="0 0 42"
+              spe-particles__sparks="texture: images/square.png; color: yellow, red; particle-count: 10; max-age: 0.5; max-age-spread: 0.4; velocity: 0 5 0; velocity-spread: 0 3 0; wiggle: 1 0 1; wiggle-spread: 5 0 5; emitter-scale: 50; size-spread: .5; randomize-velocity: true"
+              spe-particles__smoke="texture: images/fog.png; velocity: .4 2 0; velocity-spread: 1.4 0 1.4; particle-count: 50; max-age: 4; size: 8,16; opacity: 0,1,0; color: #666,#222"
+              spe-particles__fire="texture: images/explosion_sheet.png; texture-frames: 5 5; velocity: .4 .1 0; acceleration: 0 2 0; acceleration-spread: 0 2 0; velocity-spread: .4 0 .4; particle-count: 15; max-age: 1; size: 4,8; size-spread: 2; opacity: 1,0; wiggle: 0 1 0; blending: additive"
+              position="0 0 -10">
+    </a-entity>
+    <a-marker id="pos1" type='pattern' url='data/pattern-pos1.patt'>
+        <a-entity id="u1">
+            <a-entity gltf-model="#unionTroop" animation-mixer="clip:Idle" position="-0.5 0 0" id="s1"></a-entity>
+            <a-entity gltf-model="#unionTroop" animation-mixer="clip:Idle" position="0 0 0" id="s2"><a-plane src="#unionFlag" position="0 2.3 0" height="0.8" width="1.2" look-at="[camera]"></a-plane></a-entity>
+            <a-entity gltf-model="#unionTroop" animation-mixer="clip:Idle" position="0.5 0 0" id="s3"></a-entity>
+        </a-entity>
+
+    </a-marker>
+    <a-marker id="pos2" type='pattern' url='data/pattern-pos2.patt'>
+        <a-entity id="c1">
+            <a-entity gltf-model="#confTroop" animation-mixer="clip:Idle1" id="t1" position="-.5 0 0"></a-entity>
+            <a-entity gltf-model="#confTroop" animation-mixer="clip:Idle1" id="t2" position="0 0 0"><a-plane src="#confederate" position="0 2.3 0" height="0.8" width="1.2" look-at="[camera]"></a-plane></a-entity>
+            <a-entity gltf-model="#confTroop" animation-mixer="clip:Idle1" id="t3" position="0.5 0 0"></a-entity>
+        </a-entity>
+
+
+    </a-marker>
+    <a-marker id="pos3" type='pattern' url='data/pattern-pos3.patt'>
+    </a-marker>
+    <a-marker id="pos4" type='pattern' url='data/pattern-pos4.patt'>
+    </a-marker>
+    <a-marker id="pos5" type='pattern' url='data/pattern-pos5.patt'>
+    </a-marker>
+    <a-marker id="pos6" type='pattern' url='data/pattern-pos6.patt'>
+    </a-marker>
+    <a-entity camera></a-entity>
+    <a-light type="ambient" color="#ffffff" intensity="0.71"></a-light>
+    <a-light color="#ffffff" intensity="2" position="-1 1 0"></a-light>
+
+
+</a-scene>
+</body>

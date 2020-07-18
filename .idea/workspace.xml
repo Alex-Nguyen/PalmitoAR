@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b5917ce6-b5b1-4773-8cbb-f64a0de5ac0d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/data/Confederate.glb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/cannon.glb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/conFRifle.glb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/confTroop.glb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/confederate.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/confederate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/scenemanager.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/scenemanager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/home.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>preload</find>
+      <find>AnimationController</find>
+      <find>arController</find>
+      <find>arToolkitContext</find>
+      <find>create</find>
+      <find>markerControls2</find>
+      <find>animations</find>
+      <find>fire</find>
+      <find>this.marker</find>
+      <find>man</find>
+      <find>stage4StartPosition</find>
+      <find>c11</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="ProjectId" id="1bloGa1UHERd7UJDCqYVHdm99Sl" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/SPARCE" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Coding\BattleFieldAR\data" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b5917ce6-b5b1-4773-8cbb-f64a0de5ac0d" name="Default Changelist" comment="" />
+      <created>1564700068376</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1564700068376</updated>
+      <workItem from="1564700072933" duration="889000" />
+      <workItem from="1564769800000" duration="46326000" />
+      <workItem from="1565032695167" duration="3435000" />
+      <workItem from="1565072483805" duration="1073000" />
+      <workItem from="1565122032361" duration="4686000" />
+      <workItem from="1565206129437" duration="1525000" />
+      <workItem from="1565231508062" duration="18699000" />
+      <workItem from="1565295778067" duration="16351000" />
+      <workItem from="1565375968208" duration="12370000" />
+      <workItem from="1565732956527" duration="24299000" />
+      <workItem from="1565812429971" duration="1211000" />
+      <workItem from="1566173521369" duration="1230000" />
+      <workItem from="1566334092985" duration="24766000" />
+      <workItem from="1566603464453" duration="1666000" />
+      <workItem from="1567134235971" duration="92000" />
+      <workItem from="1568346119991" duration="770000" />
+      <workItem from="1568694541452" duration="773000" />
+      <workItem from="1589215947053" duration="783000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1589262977645">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1589262977645" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/components/scenemanager.js</url>
+          <line>1256</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

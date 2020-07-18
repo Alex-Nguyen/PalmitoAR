@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="PROJECT" libraries="{aframe, aframe-alongpath-component, aframe-ar, aframe-curve-component, aframe-extras, aframe-gif-shader, aframe-look-at-component, aframe-spe-particles-component, jquery}" />
+  </component>
+</project>
